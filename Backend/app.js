@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/feed', feedPostRoutes);
-app.use('/api/comments', feedCommentRoutes);
+app.use('/api/feedcomments', feedCommentRoutes);
 
 
 
