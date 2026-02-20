@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const authRoutes = require('./Routes/Authroutes');
 const feedPostRoutes = require('./Routes/FeedPostroutes');
 const feedCommentRoutes = require('./Routes/FeedCommentroutes');
+const challengeRoutes = require('./Routes/Challengeroutes');
 
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 app.use('/api/feed', feedPostRoutes);
 app.use('/api/feedcomments', feedCommentRoutes);
+app.use('/api/challenges', challengeRoutes);
 
 
 

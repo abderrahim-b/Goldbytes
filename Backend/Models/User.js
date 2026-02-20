@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema(
   password: String,
   reputation: { type: Number, default: 0 },
   role: { type: String, enum: ["user", "admin"], default: "user" },
-//   solvedChallenges: [ObjectId]
+  solvedChallenges: [{ type: mongoose.Schema.Types.ObjectId, ref: "Challenge" }]
 });
 
 const User = mongoose.model("User", userSchema);
