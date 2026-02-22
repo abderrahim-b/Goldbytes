@@ -105,24 +105,41 @@ const deleteFeedPost = async (req, res) => {
 const likeFeedPost = async (req, res) => {
   try {
     const feedPost = await FeedPost.findById(req.params.id);
+
     if (!feedPost) {
       return res.status(404).json({ message: "Feed post not found" });
     }
+
     const userId = req.user.id;
 
-    if (feedPost.author === userId) {
+    if (feedPost.author.toString() === userId) {
       return res.status(400).json({ message: "Cannot like your own post" });
     }
-    if (feedPost.likes.includes(userId)) {
+
+    const alreadyLiked = feedPost.likes.includes(userId);
+
+    if (alreadyLiked) {
       feedPost.likes.pull(userId);
       await feedPost.save();
+
+      await User.findByIdAndUpdate(feedPost.author, {
+        $inc: { reputation: -2 }
+      });
+
       return res.status(200).json({ message: "Post unliked" });
     }
+
     feedPost.likes.push(userId);
     await feedPost.save();
+
+    await User.findByIdAndUpdate(feedPost.author, {
+      $inc: { reputation: 2 }
+    });
+
     res.status(200).json({ message: "Post liked" });
+
   } catch (error) {
-    res.status(500).json({ message: "Server error", error: error.message });
+    res.status(500).json({ message: "Server error" });
   }
 };
 
