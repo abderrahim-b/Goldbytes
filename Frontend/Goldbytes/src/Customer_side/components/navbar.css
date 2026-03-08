@@ -1,0 +1,71 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left:24px ;
+    padding-right: 24px ;
+    height: 60px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+}
+.logo{
+    font-size: 24px;
+    color: var(--primary);
+    font-family: Hammersmith One, sans-serif;
+}
+.search{
+    background-color: var(--bg);
+    width: 40vw;
+    height: 28px;
+    border-radius: 20px;
+    padding:4px ;
+    padding-left: 10px;
+    border: solid 1px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+}
+.search:focus{
+    outline: none;
+    border:  solid 2px var(--primary);
+    background-color: var(--secondary);
+}
+.profile{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.create-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F0F0F0;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-weight: 400;
+    transition: background-color 0.2s ease;
+}
+.create-button:hover{
+    background-color: var(--secondary);
+
+}
+.create-button i{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+.profile-info{
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    overflow: hidden;
+
+}
+.profile-info img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}

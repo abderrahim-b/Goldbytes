@@ -1,0 +1,111 @@
+.nav-wrapper {
+  position: fixed;
+  top: 85px;
+  left: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+i {
+  font-size: 16px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.sidebar__hamburger {
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  z-index: 2;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.sidebar__hamburger:hover {
+  background: var(--secondary);
+  color: #222;
+}
+
+
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 200px;
+}
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  background: #f0f0f0;
+  color: #444;
+  font-weight: 400;
+  font-size: 15px;
+  white-space: nowrap;
+  width: 100%;
+  text-align: left;
+
+  transform-origin: top center;
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease,
+    background 0.2s,
+    color 0.2s;
+}
+
+.sidebar__item:hover {
+  background: #e2e2e2;
+}
+
+.sidebar__item.active {
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sidebar__icon {
+  font-size: 18px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+
+.nav-items.collapsed .sidebar__item {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+.nav-items.collapsed .sidebar__item:nth-child(1) {
+  transform: translateY(-50px) scale(0.6);
+  transition-delay: 0ms;
+}
+.nav-items.collapsed .sidebar__item:nth-child(2) {
+  transform: translateY(-106px) scale(0.6);
+  transition-delay: 40ms;
+}
+.nav-items.collapsed .sidebar__item:nth-child(3) {
+  transform: translateY(-162px) scale(0.6);
+  transition-delay: 80ms;
+}
+
+
+.nav-items:not(.collapsed) .sidebar__item:nth-child(1) { transition-delay: 0ms;   }
+.nav-items:not(.collapsed) .sidebar__item:nth-child(2) { transition-delay: 50ms;  }
+.nav-items:not(.collapsed) .sidebar__item:nth-child(3) { transition-delay: 100ms; }

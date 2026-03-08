@@ -1,0 +1,16 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
+:root{
+    --bg:#F3F4F4;
+    --primary:#F76F54;
+    --secondary:#E5E5E5;
+    --main-font: Roboto, sans-serif;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    font-family: var(--main-font);
+    background-color: var(--bg);
+    font-weight: 400;
+}
